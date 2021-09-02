@@ -7,5 +7,5 @@ Also, it has the "rainbow" option which randomly changes color for each grid box
 
 This is my take on the third project assignment found on the Odin Project's Foundation course.
 https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/etch-a-sketch-project
-This application is made with HTML, CSS, and Javascript.
+This application was made with HTML, CSS, and Javascript.
 
