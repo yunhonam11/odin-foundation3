@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title> Etch-a-Sketch </title>
+    <link rel="icon" href="./images/paint-icon.png" type="image/x-icon">
+</head>
+
+<body onload="run()"> 
+    <div class="navbar"> 
+        <select class="grid-num">
+            <option value="16"> 16 x 16 </option> 
+            <option value="28"> 28 x 28 </option> 
+            <option value="40"> 40 x 40 </option> 
+            <option value="52"> 52 x 52 </option>
+            <option value="64"> 64 x 64 </option>
+            <option value="76"> 76 x 76 </option>
+            <option value="88"> 88 x 88 </option>
+        </select>
+        <button class="run-button" onclick='run("n")'> RUN! </button>
+        <button class="rainbow-button" onclick='run("r")'> RAINBOW! </button>
+        <input class="color-picker" type="color" value="darkslategrey" />
+    </div> 
+
+    <h1 class="title"> Etch-a-Sketch </h1>
+    <div class="grid-container"></div>
+
+    <script>
+        function run(str)
+        {
+            var gridnum = parseInt(document.getElementsByClassName("grid-num")[0].value.substring(0,2));
+
+            if (gridnum >= 2 && gridnum <= 100)
+            {
+                var finalnum = gridnum * gridnum;
+
+                var columns = "";
+                for (let i = 0; i < gridnum; i++)
+                {
+                    columns += "auto ";
+                }
+                document.getElementsByClassName("grid-container")[0].style.gridTemplateColumns = columns;
+
+                document.getElementsByClassName("grid-container")[0].innerHTML = "";
+                for (let i = 0; i < finalnum; i++)
+                {
+                    if (str == "r")
+                    {
+                        document.getElementsByClassName("grid-container")[0].innerHTML += 
+                        '<div onmouseover="rainbowhighlight(this)" class="grid-item"></div>';
+                    } else {
+                        document.getElementsByClassName("grid-container")[0].innerHTML += 
+                        '<div onmouseover="highlight(this)" class="grid-item"></div>';
+                    }
+                }
+
+                var gridWidthHeight = 560/gridnum;
+                document.getElementsByClassName("grid-item")[0].style.width = gridWidthHeight.toString() + "px";
+                document.getElementsByClassName("grid-item")[0].style.height = gridWidthHeight.toString() + "px";
+            } else if (gridnum < 2) {
+                alert("Not enough grids!");
+            } else if (gridnum > 100) {
+                alert("Too many grids!");
+            }
+        }
+
+        function highlight(x)
+        {
+            x.style.backgroundColor = document.getElementsByClassName("color-picker")[0].value;
+        }
+
+        function rainbowhighlight(x)
+        {
+            var red = Math.floor(Math.random() * 256);
+            var green = Math.floor(Math.random() * 256);
+            var blue = Math.floor(Math.random() * 256);
+            x.style.backgroundColor = "rgb(" + red.toString() + "," + green.toString()
+                                        + "," + blue.toString() + ")";
+        }
+    </script>
+</body>
+
+</html>
