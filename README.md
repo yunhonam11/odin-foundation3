@@ -9,3 +9,4 @@ This is my take on the third project assignment found on the Odin Project's Foun
 https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/etch-a-sketch-project
 This application was made with HTML, CSS, and Javascript.
 
+Link to live website: https://yunhonam11.github.io/odin-foundation3/index.html
