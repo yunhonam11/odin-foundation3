@@ -1,4 +1,5 @@
 The Etch-a-Sketch Project
+
 In this application, users are able to draw freely, using any color, on the board after choosing the grid count.
 Just pick the number of grids, click run, and hover the mouse cursor over the board. 
 Also, it has the "rainbow" option which randomly changes color for each grid box. 
